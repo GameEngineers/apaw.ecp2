@@ -1,3 +1,12 @@
+package es.upm.miw.voting.rest.data.models.daos.memory;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import es.upm.miw.voting.rest.business.models.entities.*;
+import es.upm.miw.voting.rest.data.models.daos.VoteDao;
+
 public class VoteMemoryDao extends GenericMemoryDao<Vote, Integer> implements VoteDao {
 
     public VoteMemoryDao() {
