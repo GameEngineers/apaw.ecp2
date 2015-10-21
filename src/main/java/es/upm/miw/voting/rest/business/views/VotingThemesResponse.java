@@ -4,14 +4,14 @@ import java.util.Map;
 
 public class VotingThemesResponse {
 
-    Map<String, Integer> themes;
+    Map<String, Integer> votingThemes;
 
     public Map<String, Integer> getThemes() {
-        return themes;
+        return votingThemes;
     }
 
     public void setThemes(Map<String, Integer> themes) {
-        this.themes = themes;
+        this.votingThemes = themes;
     }
  
 }
