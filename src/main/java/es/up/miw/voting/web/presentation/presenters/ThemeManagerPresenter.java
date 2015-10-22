@@ -10,7 +10,7 @@ public class ThemeManagerPresenter {
 
     public String process(Model model) {
         model.put("action", "ThemeManagerPresenter:process");
-        return "VotingView";
+        return "ThemeManagerView";
     }
 
     public String createTheme(Model model) {
