@@ -8,7 +8,7 @@ public class VotingPresenter {
 
     public String process(Model model){
         model.put("action", "VotingPresenter:process");
-        return "ThemeManagerView";
+        return "VotingView";
     }
     
     public String voteTheme(Model model){
