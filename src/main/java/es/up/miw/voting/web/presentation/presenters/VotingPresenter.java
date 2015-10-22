@@ -8,6 +8,7 @@ public class VotingPresenter {
 
     public String process(Model model){
         model.put("action", "VotingPresenter:process");
+        model.put("votingThemes", new VotingThemesBO().getVotingThemes());
         return "VotingView";
     }
     
