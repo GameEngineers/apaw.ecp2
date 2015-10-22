@@ -5,13 +5,13 @@ import java.util.List;
 
 import es.upm.miw.voting.rest.business.models.entities.Theme;
 import es.upm.miw.voting.rest.business.models.entities.Vote;
-import es.upm.miw.voting.rest.business.views.ThemeDTO;
-import es.upm.miw.voting.rest.business.views.VotingThemeDTO;
+import es.upm.miw.voting.rest.business.views.ThemeDto;
+import es.upm.miw.voting.rest.business.views.VotingThemeDto;
 import es.upm.miw.voting.rest.data.models.daos.DaoFactory;
 
 public class VotingThemesBO {
 
-    public void addTheme(ThemeDTO theme) {
+    public void addTheme(ThemeDto theme) {
         assert theme != null;
         DaoFactory.getFactory().getThemeDao().create(new Theme(this.generateThemeId(), theme.getTheme()));
     }
@@ -30,11 +30,11 @@ public class VotingThemesBO {
         return id + 1;
     }
 
-    public List<ThemeDTO> getThemes() {
-        ArrayList<ThemeDTO> themes = new ArrayList<>();
+    public List<ThemeDto> getThemes() {
+        ArrayList<ThemeDto> themes = new ArrayList<>();
         List<Theme> themeList = DaoFactory.getFactory().getThemeDao().findAll();
         for (Theme theme : themeList) {
-            ThemeDTO dto = new ThemeDTO();
+            ThemeDto dto = new ThemeDto();
             dto.setId(theme.getId());
             dto.setTheme(theme.getName());
             themes.add(dto);
@@ -43,13 +43,13 @@ public class VotingThemesBO {
         return themes;
     }
 
-    public List<VotingThemeDTO> getVotingThemes() {
-        ArrayList<VotingThemeDTO> votingthemes = new ArrayList<>();
+    public List<VotingThemeDto> getVotingThemes() {
+        ArrayList<VotingThemeDto> votingthemes = new ArrayList<>();
         List<Theme> themes = DaoFactory.getFactory().getThemeDao().findAll();
         for (Theme theme : themes) {
             List<Vote> votes = DaoFactory.getFactory().getVoteDao().findByTheme(theme);
             int avg = averageVote(votes);
-            VotingThemeDTO dto = new VotingThemeDTO();
+            VotingThemeDto dto = new VotingThemeDto();
             dto.setTheme(theme.getName());
             dto.setThemeId(theme.getId());
             dto.setVote(avg);
@@ -69,7 +69,7 @@ public class VotingThemesBO {
         return result;
     }
 
-    public void addVote(VotingThemeDTO votingTheme) {
+    public void addVote(VotingThemeDto votingTheme) {
         assert votingTheme != null;
         Theme theme = DaoFactory.getFactory().getThemeDao().read(votingTheme.getThemeId());
         Vote vote = new Vote(this.generateVoteId(), votingTheme.getVote(), theme);

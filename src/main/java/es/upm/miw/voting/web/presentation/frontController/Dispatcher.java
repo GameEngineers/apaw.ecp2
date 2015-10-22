@@ -45,7 +45,7 @@ public class Dispatcher {
         case "ThemeManagerPresenter":
             ThemeManagerPresenter themeManagerPresenter = new ThemeManagerPresenter();
             if ("createTheme".equals(action)) {
-                // TODO uI1Presenter.setters((request.getParams().get("param")));
+                model.put("themeName", request.getParams().get("themeName"));
                 nextView = themeManagerPresenter.createTheme(model);
             } else {
                 model.put("error", "Acción no permitida: " + action);
@@ -54,7 +54,8 @@ public class Dispatcher {
         case "VotingPresenter":
             VotingPresenter votingPresenter = new VotingPresenter();
             if ("voteTheme".equals(action)) {
-                // TODO uI2Presenter.setters((request.getParams().get("param")));
+                model.put("themeName", request.getParams().get("themeName"));
+                model.put("value", request.getParams().get("value"));
                 nextView = votingPresenter.voteTheme(model);
             } else {
                 model.put("error", "Acción no permitida: " + action);
