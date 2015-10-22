@@ -9,12 +9,12 @@ import es.upm.miw.voting.web.presentation.models.Model;
 public class ThemeManagerPresenter {
 
     public String process(Model model) {
-        model.put("ThemeManager", "ThemeManagerPresenter:process");
+        model.put("action", "ThemeManagerPresenter:process");
         return "VotingView";
     }
 
-    public String addTheme(Model model) {
-        model.put("ThemeManager", "ThemeManagerPresenter:addTheme");
+    public String voteTheme(Model model) {
+        model.put("action", "ThemeManagerPresenter:voteTheme");
         ThemeDTO dto = new ThemeDTO();
         dto.setTheme(model.get("themeName").toString());
         new VotingThemesBO().addTheme(dto);
