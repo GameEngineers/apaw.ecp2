@@ -1,6 +1,6 @@
 package es.upm.miw.voting.rest.business.views;
 
-public class ThemeDTO {
+public class ThemeDto {
 
     int id;
 
@@ -19,6 +19,11 @@ public class ThemeDTO {
     }
 
     public String getTheme() {
+        return theme;
+    }
+
+    @Override
+    public String toString() {
         return theme;
     }
 
