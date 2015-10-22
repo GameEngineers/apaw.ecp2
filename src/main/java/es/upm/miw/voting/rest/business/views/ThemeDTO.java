@@ -6,11 +6,6 @@ public class ThemeDTO {
 
     String theme;
 
-    public ThemeDTO(int id, String theme) {
-        this.setId(id);
-        this.setTheme(theme);
-    }
-
     public void setId(int id) {
         this.id = id;
     }
