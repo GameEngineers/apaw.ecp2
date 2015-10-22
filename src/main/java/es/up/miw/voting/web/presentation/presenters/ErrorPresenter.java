@@ -6,6 +6,6 @@ public class ErrorPresenter {
 
     public String process(Model model) {
         model.put("action", "ErrorPresenter:process");
-        return "VotingView";
+        return "ErrorView";
     }
 }
