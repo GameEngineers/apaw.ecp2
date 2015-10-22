@@ -11,7 +11,7 @@ public class VotingView implements View {
         if (model.get("votingThemes") != null) {
             System.out.print(model.get("votingThemes"));
         } else {
-            System.out.print("[]");
+            System.out.println("[]");
         }
     }
 }
