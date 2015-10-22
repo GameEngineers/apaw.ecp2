@@ -7,11 +7,6 @@ public class VotingView implements View {
     @Override
     public void show(Model model) {
         System.out.println("Voting Page");
-        System.out.print("Temas: ");
-        if (model.get("votingThemes") != null) {
-            System.out.println(model.get("votingThemes"));
-        } else {
-            System.out.println("[]");
-        }
+        System.out.println("Temas: " + model.get("votingThemes"));
     }
 }
