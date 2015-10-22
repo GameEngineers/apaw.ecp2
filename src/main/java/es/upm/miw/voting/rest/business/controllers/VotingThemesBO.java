@@ -35,7 +35,6 @@ public class VotingThemesBO {
         List<Theme> themeList = DaoFactory.getFactory().getThemeDao().findAll();
         for (Theme theme : themeList) {
             ThemeDto dto = new ThemeDto();
-            dto.setId(theme.getId());
             dto.setTheme(theme.getName());
             themes.add(dto);
         }
@@ -48,18 +47,17 @@ public class VotingThemesBO {
         List<Theme> themes = DaoFactory.getFactory().getThemeDao().findAll();
         for (Theme theme : themes) {
             List<Vote> votes = DaoFactory.getFactory().getVoteDao().findByTheme(theme);
-            int avg = averageVote(votes);
+            double avg = averageVote(votes);
             VotingThemeDto dto = new VotingThemeDto();
             dto.setTheme(theme.getName());
-            dto.setThemeId(theme.getId());
-            dto.setVote(avg);
+            dto.setAverege(avg);
             votingthemes.add(dto);
         }
         return votingthemes;
     }
 
-    private int averageVote(List<Vote> votes) {
-        int result = 0;
+    private double averageVote(List<Vote> votes) {
+        double result = 0;
         if (votes != null && votes.size() > 0) {
             for (Vote vote : votes) {
                 result += vote.getVote();
@@ -71,8 +69,8 @@ public class VotingThemesBO {
 
     public void addVote(VotingThemeDto votingTheme) {
         assert votingTheme != null;
-        Theme theme = DaoFactory.getFactory().getThemeDao().read(votingTheme.getThemeId());
-        Vote vote = new Vote(this.generateVoteId(), votingTheme.getVote(), theme);
+        Theme theme = DaoFactory.getFactory().getThemeDao().findByName(votingTheme.getTheme());
+        Vote vote = new Vote(this.generateVoteId(), votingTheme.getVote() , theme);
         DaoFactory.getFactory().getVoteDao().create(vote);
     }
 
