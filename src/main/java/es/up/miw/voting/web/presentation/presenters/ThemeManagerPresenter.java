@@ -4,7 +4,6 @@ import java.util.List;
 
 import es.upm.miw.voting.rest.business.controllers.VotingThemesBO;
 import es.upm.miw.voting.rest.business.views.ThemeDto;
-import es.upm.miw.voting.rest.data.models.daos.DaoFactory;
 import es.upm.miw.voting.web.presentation.models.Model;
 
 public class ThemeManagerPresenter {
