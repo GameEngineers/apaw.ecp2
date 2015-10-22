@@ -13,7 +13,7 @@ public class ThemeManagerPresenter {
         return "VotingView";
     }
 
-    public String voteTheme(Model model) {
+    public String createVote(Model model) {
         model.put("action", "ThemeManagerPresenter:voteTheme");
         ThemeDTO dto = new ThemeDTO();
         dto.setTheme(model.get("themeName").toString());
