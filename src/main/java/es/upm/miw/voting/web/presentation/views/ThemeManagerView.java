@@ -8,13 +8,7 @@ public class ThemeManagerView implements View {
     public void show(Model model) {
 
         System.out.println("Theme Manager Page");
-        System.out.print("Temas: ");
-        if (model.get("themes") != null) {
-            System.out.println(model.get("themes"));
-        } else {
-            System.out.println("[]");
-        }
-
+        System.out.println("Temas: " + model.get("themes"));
     }
 
 }
