@@ -15,7 +15,7 @@ public class VotingPresenter {
         model.put("action", "VotingPresenter:voteTheme");
         VotingThemeDto dto = new VotingThemeDto();
         dto.setTheme(model.get("themeName").toString());
-        dto.setTheme(model.get("value").toString());
+        dto.setVote(Integer.parseInt(model.get("value").toString()));
         new VotingThemesBO().addVote(dto);
         model.put("votingThemes", new VotingThemesBO().getVotingThemes());
         return "VotingView";
